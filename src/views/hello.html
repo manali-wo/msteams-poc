@@ -24,6 +24,10 @@
       </span>
     </div>
     <script type="text/javascript">
+      microsoftTeams.settings.setValidityState(true);
+      microsoftTeams.settings.registerOnSaveHandler(function () {
+        console.log("Saved");
+      });
       microsoftTeams.appInitialization.notifySuccess();
     </script>
   </body>
