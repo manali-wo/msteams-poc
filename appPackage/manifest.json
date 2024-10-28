@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+  "version": "1.0.0",
+  "manifestVersion": "1.17",
+  "id": "8f2b8657-99ee-48c1-ad94-3927198b0efd",
+  "name": {
+    "short": "Recorder dev",
+    "full": "Recorder dev"
+  },
+  "developer": {
+    "name": "Webosmotic",
+    "websiteUrl": "https://www.webosmotic.com",
+    "privacyUrl": "https://webosmotic.com/privacy-policy/",
+    "termsOfUseUrl": "https://webosmotic.com/terms-and-conditions/"
+  },
+  "description": {
+    "short": "Demo app for testing integration",
+    "full": "Testing app for ms teams integration"
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#FFFFFF",
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://e395-49-43-34-251.ngrok-free.app",
+      "canUpdateConfiguration": true,
+      "scopes": ["groupChat", "team"],
+      "context": [
+        "channelTab",
+        "meetingSidePanel",
+        "meetingStage",
+        "privateChatTab",
+        "meetingChatTab",
+        "meetingDetailsTab"
+      ]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "d050a184-3ad2-4e54-a8ee-d3fe9b1e0394",
+      "name": "Recorder",
+      "contentUrl": "https://e395-49-43-34-251.ngrok-free.app",
+      "websiteUrl": "https://e395-49-43-34-251.ngrok-free.app",
+      "searchUrl": "https://e395-49-43-34-251.ngrok-free.app",
+      "scopes": ["personal"],
+      "context": [
+        "personalTab",
+        "channelTab",
+        "privateChatTab",
+        "meetingChatTab",
+        "meetingDetailsTab",
+        "meetingSidePanel",
+        "teamLevelApp",
+        "meetingStage"
+      ]
+    },
+    {
+      "entityId": "about",
+      "scopes": ["personal"]
+    }
+  ],
+  "validDomains": ["*.ngrok-free.app", "421d-49-43-34-251.ngrok-free.app"],
+  "webApplicationInfo": {
+    "id": "168b3b93-86a8-46f3-aa09-e25d21b1711c"
+  },
+  "defaultGroupCapability": {
+    "team": "tab",
+    "groupchat": "tab",
+    "meetings": "tab"
+  },
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "ChannelMeeting.ReadBasic.Group",
+          "type": "Application"
+        },
+        {
+          "name": "ChannelMeetingRecording.Read.Group",
+          "type": "Application"
+        },
+        {
+          "name": "ChannelSettings.Read.Group",
+          "type": "Application"
+        },
+        {
+          "name": "TeamSettings.Read.Group",
+          "type": "Application"
+        },
+        {
+          "name": "TeamsTab.Create.Group",
+          "type": "Application"
+        },
+        {
+          "name": "Calls.JoinGroupCalls.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "Calls.AccessMedia.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "ChatSettings.Read.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "OnlineMeetingRecording.Read.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "TeamsTab.Create.Chat",
+          "type": "Application"
+        }
+      ]
+    }
+  },
+  "supportedChannelTypes": ["sharedChannels", "privateChannels"]
+}
