@@ -6,6 +6,7 @@
   },
   "private": true,
   "dependencies": {
+    "@microsoft/teams-js": "^2.30.0",
     "restify": "^11.1.0",
     "send": "^0.18.0"
   },

@@ -1,21 +1,33 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "manifestVersion": "1.17",
-  "id": "8f2b8657-99ee-48c1-ad94-3927198b0efd",
+  "id": "21c03331-72c6-4eac-94bb-364b4a21a51d",
   "name": {
-    "short": "Recorder dev",
-    "full": "Recorder dev"
+    "short": "Recorder",
+    "full": "Full name for Recorder"
   },
   "developer": {
     "name": "Webosmotic",
-    "websiteUrl": "https://www.webosmotic.com",
+    "websiteUrl": "https://www.webosmotic.com/",
     "privacyUrl": "https://webosmotic.com/privacy-policy/",
     "termsOfUseUrl": "https://webosmotic.com/terms-and-conditions/"
   },
+  "staticTabs": [
+    {
+      "entityId": "testEntityId",
+      "scopes": ["personal"],
+      "context": ["personalTab", "channelTab"],
+      "name": "Display name of tab",
+      "contentUrl": "https://msteams-poc.onrender.com/",
+      "websiteUrl": "https://msteams-poc.onrender.com/",
+      "searchUrl": "https://msteams-poc.onrender.com/"
+    }
+  ],
+  "supportedChannelTypes": ["sharedChannels", "privateChannels"],
   "description": {
-    "short": "Demo app for testing integration",
-    "full": "Testing app for ms teams integration"
+    "short": "Short description of Recorder",
+    "full": "Full description of Recorder"
   },
   "icons": {
     "outline": "outline.png",
@@ -24,51 +36,27 @@
   "accentColor": "#FFFFFF",
   "configurableTabs": [
     {
-      "configurationUrl": "https://e395-49-43-34-251.ngrok-free.app",
+      "configurationUrl": "https://msteams-poc.onrender.com/",
       "canUpdateConfiguration": true,
-      "scopes": ["groupChat", "team"],
+      "scopes": ["team", "groupChat"],
       "context": [
         "channelTab",
-        "meetingSidePanel",
+        "privateChatTab",
         "meetingStage",
-        "privateChatTab",
-        "meetingChatTab",
-        "meetingDetailsTab"
-      ]
-    }
-  ],
-  "staticTabs": [
-    {
-      "entityId": "d050a184-3ad2-4e54-a8ee-d3fe9b1e0394",
-      "name": "Recorder",
-      "contentUrl": "https://e395-49-43-34-251.ngrok-free.app",
-      "websiteUrl": "https://e395-49-43-34-251.ngrok-free.app",
-      "searchUrl": "https://e395-49-43-34-251.ngrok-free.app",
-      "scopes": ["personal"],
-      "context": [
-        "personalTab",
-        "channelTab",
-        "privateChatTab",
         "meetingChatTab",
         "meetingDetailsTab",
-        "meetingSidePanel",
-        "teamLevelApp",
-        "meetingStage"
+        "meetingSidePanel"
       ]
-    },
-    {
-      "entityId": "about",
-      "scopes": ["personal"]
     }
   ],
-  "validDomains": ["*.ngrok-free.app", "e395-49-43-34-251.ngrok-free.app"],
+  "validDomains": ["*.onrender.com", "msteams-poc.onrender.com"],
   "webApplicationInfo": {
-    "id": "168b3b93-86a8-46f3-aa09-e25d21b1711c"
+    "id": "838c0abd-b9c9-4235-b6c0-ed26a4a6db0d"
   },
-  "defaultGroupCapability": {
-    "team": "tab",
-    "groupchat": "tab",
-    "meetings": "tab"
+  "meetingExtensionDefinition": {
+    "scenes": [],
+    "supportsStreaming": true,
+    "supportsAnonymousGuestUsers": true
   },
   "authorization": {
     "permissions": {
@@ -86,15 +74,7 @@
           "type": "Application"
         },
         {
-          "name": "TeamSettings.Read.Group",
-          "type": "Application"
-        },
-        {
-          "name": "TeamsTab.Create.Group",
-          "type": "Application"
-        },
-        {
-          "name": "Calls.JoinGroupCalls.Chat",
+          "name": "TeamsTab.Create.Chat",
           "type": "Application"
         },
         {
@@ -102,19 +82,14 @@
           "type": "Application"
         },
         {
-          "name": "ChatSettings.Read.Chat",
-          "type": "Application"
-        },
-        {
           "name": "OnlineMeetingRecording.Read.Chat",
           "type": "Application"
         },
         {
-          "name": "TeamsTab.Create.Chat",
-          "type": "Application"
+          "name": "OnlineMeetingAudioVideo.Stream.Chat",
+          "type": "Delegated"
         }
       ]
     }
-  },
-  "supportedChannelTypes": ["sharedChannels", "privateChannels"]
+  }
 }

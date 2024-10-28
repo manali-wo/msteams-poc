@@ -1,11 +1,16 @@
 const restify = require("restify");
 const send = require("send");
 const fs = require("fs");
+const microsoftTeams = require("@microsoft/teams-js");
 
 //Create HTTP server.
 const server = restify.createServer({
-  key: process.env.SSL_KEY_FILE ? fs.readFileSync(process.env.SSL_KEY_FILE) : undefined,
-  certificate: process.env.SSL_CRT_FILE ? fs.readFileSync(process.env.SSL_CRT_FILE) : undefined,
+  key: process.env.SSL_KEY_FILE
+    ? fs.readFileSync(process.env.SSL_KEY_FILE)
+    : undefined,
+  certificate: process.env.SSL_CRT_FILE
+    ? fs.readFileSync(process.env.SSL_CRT_FILE)
+    : undefined,
   formatters: {
     "text/html": function (req, res, body) {
       return body;
@@ -34,3 +39,12 @@ server.get("/", (req, res, next) => {
 server.get("/tab", (req, res, next) => {
   send(req, __dirname + "/views/hello.html").pipe(res);
 });
+
+microsoftTeams.app
+  .initialize()
+  .then(() => {
+    console.log("Teams SDK initialized successfully.");
+  })
+  .catch((error) => {
+    console.error("Error initializing Teams SDK:", error);
+  });
