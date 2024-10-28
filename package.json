@@ -17,8 +17,7 @@
   "scripts": {
     "dev:teamsfx": "env-cmd --silent -f .localConfigs npm run start",
     "start": "nodemon --inspect=9239 --signal SIGINT src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "nodemon --inspect=9239 --signal SIGINT src/app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "homepage": "."
 }
