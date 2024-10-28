@@ -1,7 +1,6 @@
 const restify = require("restify");
 const send = require("send");
 const fs = require("fs");
-const microsoftTeams = require("@microsoft/teams-js");
 
 //Create HTTP server.
 const server = restify.createServer({
@@ -39,12 +38,3 @@ server.get("/", (req, res, next) => {
 server.get("/tab", (req, res, next) => {
   send(req, __dirname + "/views/hello.html").pipe(res);
 });
-
-microsoftTeams.app
-  .initialize()
-  .then(() => {
-    console.log("Teams SDK initialized successfully.");
-  })
-  .catch((error) => {
-    console.error("Error initializing Teams SDK:", error);
-  });
