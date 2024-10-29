@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
-  "version": "1.0.9",
+  "version": "1.0.12",
   "manifestVersion": "1.17",
   "id": "21c03331-72c6-4eac-94bb-364b4a21a51d",
   "name": {
@@ -45,7 +45,8 @@
         "meetingStage",
         "meetingChatTab",
         "meetingDetailsTab",
-        "meetingSidePanel"
+        "meetingSidePanel",
+        "personalTab"
       ]
     }
   ],
@@ -88,6 +89,38 @@
         {
           "name": "OnlineMeetingAudioVideo.Stream.Chat",
           "type": "Delegated"
+        },
+        {
+          "name": "Calls.JoinGroupCalls.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "Chat.Manage.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "ChatSettings.ReadWrite.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "OnlineMeeting.ReadBasic.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "TeamsTab.Read.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "TeamsTab.ReadWrite.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "OnlineMeetingNotification.Send.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "TeamsAppInstallation.Read.Chat",
+          "type": "Application"
         }
       ]
     }
