@@ -38,3 +38,33 @@ server.get("/", (req, res, next) => {
 server.get("/tab", (req, res, next) => {
   send(req, __dirname + "/views/hello.html").pipe(res);
 });
+
+const userPermissions = {
+  user1: { role: "admin", features: ["dashboard", "settings", "reports"] },
+  user2: { role: "user", features: ["dashboard", "profile"] },
+};
+
+server.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // Adjust as needed
+  res.header("Access-Control-Allow-Methods", "POST");
+  next();
+});
+
+// Entitlements endpoint
+server.post("/entitlements", (req, res) => {
+  const { userId } = req.body;
+
+  if (!userId) {
+    return res.status(400).json({ error: "User ID is required" });
+  }
+
+  const entitlements = userPermissions[userId];
+
+  if (!entitlements) {
+    return res
+      .status(404)
+      .json({ error: "No entitlements found for this user" });
+  }
+
+  res.status(200).json({ entitlements });
+});
