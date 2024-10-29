@@ -51,7 +51,7 @@ server.use((req, res, next) => {
 });
 
 // Entitlements endpoint
-server.post("/entitlements", (req, res) => {
+server.post("/entitlements", (req, res, next) => {
   const { userId } = req.body;
 
   if (!userId) {
